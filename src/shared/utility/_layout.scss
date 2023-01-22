@@ -1,0 +1,50 @@
+.grid {
+    display: grid;
+    grid-gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.gap-12 {
+    gap: 12px;
+}
+
+.gap-18 {
+    gap: 18px;
+}
+
+.gap-24 {
+    gap: 24px;
+}
+
+
+.gap-32 {
+    gap: 32px;
+}
+.w-100 {
+    width: 100%;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.align-items-flex-end {
+    align-items: flex-end;
+}
+
+.align-items-center {
+    align-items: center;
+}

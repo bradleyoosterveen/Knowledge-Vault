@@ -1,0 +1,28 @@
+<div class="col gap-32 px-54 py-32">
+    <div class="row justify-content-space-between">
+        <h1>Campaigns</h1>
+        <button class="shadow">
+            <p>Create a new campaign</p>
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+
+    <div class="grid">
+        <ng-container *ngFor="let campaign of campaigns">
+            <a ariaCurrentWhenActive="page" [routerLink]="['/campaign', campaign.id]" class="col bg-black shadow border-smooth" style="overflow: hidden;">
+                <div class="col" style="overflow: hidden;">
+                    <img src="{{campaign.bannerURL}}" alt="" style="height: 220px;">
+                </div>
+                <div class="col gap-12 py-12 px-24">
+                    <h2>{{campaign.name}}</h2>
+        
+                    <div *ngIf="campaign.tags.length > 0" class="row gap-12">
+                        <div class="tag" *ngFor="let tag of campaign.tags">{{tag.text}}</div>
+                    </div>
+    
+                    <p class="subtle" *ngIf="!campaign.tags || campaign.tags.length < 1">No tags available</p>
+                </div>
+            </a>
+        </ng-container>
+    </div>
+</div>

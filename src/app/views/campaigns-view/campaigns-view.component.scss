@@ -1,0 +1,15 @@
+div:first-child {
+    img {
+        transition: 0.1s;
+    }
+}
+
+a {
+    &:hover {
+
+
+        img {
+            transform: scale(1.04);
+        }
+    }
+}
