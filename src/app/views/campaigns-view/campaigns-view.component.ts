@@ -8,5 +8,15 @@ import { CAMPAIGNS } from 'src/app/models/mock/mockCampaigns';
   styleUrls: ['./campaigns-view.component.scss']
 })
 export class CampaignsViewComponent {
-  campaigns: Campaign[] = CAMPAIGNS;
+  public campaigns: Campaign[] = CAMPAIGNS;
+
+  public createCampaignModalOpen: boolean = false;
+
+  public onCreateCampaignModalClick(): void {
+    this.createCampaignModalOpen = true;
+  }
+
+  onSubmitEvent(campaign: Campaign): void {
+    this.createCampaignModalOpen = false;
+  }
 }

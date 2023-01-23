@@ -7,6 +7,15 @@ import { CampaignsViewComponent } from './views/campaigns-view/campaigns-view.co
 import { CampaignViewComponent } from './views/campaign-view/campaign-view.component';
 import { CampaignDetailsViewComponent } from './views/campaign-details-view/campaign-details-view.component';
 import { ItemsViewComponent } from './views/items-view/items-view.component';
+import { NotFoundViewComponent } from './views/not-found-view/not-found-view.component';
+import { CharactersViewComponent } from './views/characters-view/characters-view.component';
+import { SitesViewComponent } from './views/sites-view/sites-view.component';
+import { RegionsViewComponent } from './views/regions-view/regions-view.component';
+import { AreasViewComponent } from './views/areas-view/areas-view.component';
+import { SpellsViewComponent } from './views/spells-view/spells-view.component';
+import { ModalComponent } from './components/modals/modal/modal.component';
+import { CreateCampaignFormComponent } from './components/forms/create-campaign-form/create-campaign-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,10 +24,19 @@ import { ItemsViewComponent } from './views/items-view/items-view.component';
     CampaignViewComponent,
     CampaignDetailsViewComponent,
     ItemsViewComponent,
+    NotFoundViewComponent,
+    CharactersViewComponent,
+    SitesViewComponent,
+    RegionsViewComponent,
+    AreasViewComponent,
+    SpellsViewComponent,
+    ModalComponent,
+    CreateCampaignFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

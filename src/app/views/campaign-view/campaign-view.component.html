@@ -1,3 +1,22 @@
-<h1>{{campaign.name}}</h1>
+<div class="col">
+    <div class="shadow" style="background: linear-gradient(270deg, rgba(34,34,34,0) 0%, rgba(34,34,34,1) 100%), url({{campaign.bannerURL}}); background-size: cover; background-position: center;">
+        <div class="col px-54 py-24 gap-12">
+            <a routerLink="" class="row align-items-center gap-6">
+                <p><small><i class="fa-solid fa-chevron-left"></i></small> View all your campaigns</p>
+            </a>
+            <h1>{{campaign.name}}</h1>
+        </div>
+    </div>
 
-<router-outlet name='campaignObjects'></router-outlet>
+    <div class="row px-54 py-24 gap-32">
+        <a class="button" routerLink="general-information" routerLinkActive="active">General information</a>
+        <a class="button" routerLink="characters" routerLinkActive="active">Characters</a>
+        <a class="button" routerLink="sites" routerLinkActive="active">Sites</a>
+        <a class="button" routerLink="regions" routerLinkActive="active">Regions</a>
+        <a class="button" routerLink="areas" routerLinkActive="active">Areas</a>
+        <a class="button" routerLink="items" routerLinkActive="active">Items</a>
+        <a class="button" routerLink="spells" routerLinkActive="active">Spells</a>
+    </div>
+
+    <router-outlet></router-outlet>
+</div>

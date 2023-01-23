@@ -1,0 +1,20 @@
+form {
+    label {
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    input, textarea {
+        border: none;
+        background: var(--color-veryDarkGrey);
+        padding: 12px 24px;
+        border-radius: 4px;
+        box-shadow: var(--shadow-light);
+
+        &:active {
+            border: none;
+        }
+
+        resize: none;
+    }
+}

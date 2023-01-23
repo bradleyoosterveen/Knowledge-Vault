@@ -1,0 +1,28 @@
+<form action="" class="col gap-24" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="col gap-6">
+        <label for="name">Name *</label>
+        <input type="text" id="name" formControlName="name" required>
+
+        <small *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)">
+            Name is required
+        </small>
+    </div>
+
+    <div class="col gap-6">
+        <label>Description</label>
+        <textarea rows="3" formControlName="description"></textarea>
+    </div>
+
+    <div class="col gap-6">
+        <label>Banner image URL *</label>
+        <input type="text" formControlName="bannerURL">
+        <small *ngIf="form.get('bannerURL')?.invalid && (form.get('bannerURL')?.dirty || form.get('bannerURL')?.touched)">
+            Banner image URL is required
+        </small>
+    </div>
+
+    <div class="row gap-24 justify-content-flex-end">
+        <button type="button" class="button-link" (click)="onResetToDefaultsClick()">Reset to defaults</button>
+        <button type="submit" class="bg-blue" [disabled]="!form.valid">Create</button>
+    </div>
+</form>

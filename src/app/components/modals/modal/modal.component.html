@@ -1,0 +1,12 @@
+<div *ngIf="open" class="bg-reallyBlack-transparent overlay px-54 py-32">
+    <div class="modal col gap-24 border-smooth px-32 py-24 bg-black shadow">
+        <div class="modal-header">
+            <h2><ng-content select="[title]"></ng-content></h2>
+
+            <h2><i class="button-icon fa-solid fa-xmark" (click)="onCloseClick()"></i></h2>
+        </div>
+        <div class="modal-body">
+            <ng-content select="[body]"></ng-content>
+        </div>
+    </div>
+</div>
