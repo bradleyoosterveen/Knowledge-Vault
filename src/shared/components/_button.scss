@@ -22,3 +22,15 @@ button, .button {
 .button-icon {
     cursor: pointer;
 }
+
+.button-long {
+    opacity: 0.6;
+    font-weight: 600;
+    padding: 6px 24px;
+    border-radius: 4px;
+    &.active {
+        opacity: 1;
+        color: var(--color-black);
+        background-color: white;
+    }
+}

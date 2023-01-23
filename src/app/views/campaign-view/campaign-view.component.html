@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col gap-24">
     <div class="shadow" style="background: linear-gradient(270deg, rgba(34,34,34,0) 0%, rgba(34,34,34,1) 100%), url({{campaign.bannerURL}}); background-size: cover; background-position: center;">
         <div class="col px-54 py-24 gap-12">
             <a routerLink="" class="row align-items-center gap-6">
@@ -7,16 +7,20 @@
             <h1>{{campaign.name}}</h1>
         </div>
     </div>
+    
+    <div class="row px-54 gap-32">
+        <div class="col gap-12" style="width: 12%">
+            <a class="button-long" routerLink="general-information" routerLinkActive="active">General information</a>
+            <a class="button-long" routerLink="characters" routerLinkActive="active">Characters</a>
+            <a class="button-long" routerLink="sites" routerLinkActive="active">Sites</a>
+            <a class="button-long" routerLink="regions" routerLinkActive="active">Regions</a>
+            <a class="button-long" routerLink="areas" routerLinkActive="active">Areas</a>
+            <a class="button-long" routerLink="items" routerLinkActive="active">Items</a>
+            <a class="button-long" routerLink="spells" routerLinkActive="active">Spells</a>
+        </div>
 
-    <div class="row px-54 py-24 gap-32">
-        <a class="button" routerLink="general-information" routerLinkActive="active">General information</a>
-        <a class="button" routerLink="characters" routerLinkActive="active">Characters</a>
-        <a class="button" routerLink="sites" routerLinkActive="active">Sites</a>
-        <a class="button" routerLink="regions" routerLinkActive="active">Regions</a>
-        <a class="button" routerLink="areas" routerLinkActive="active">Areas</a>
-        <a class="button" routerLink="items" routerLinkActive="active">Items</a>
-        <a class="button" routerLink="spells" routerLinkActive="active">Spells</a>
+        <div class="col" style="flex: auto">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-
-    <router-outlet></router-outlet>
 </div>

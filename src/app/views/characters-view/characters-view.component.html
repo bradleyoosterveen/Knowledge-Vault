@@ -1,1 +1,25 @@
-<p>characters-view works!</p>
+<div class="col gap-32">
+    <div class="row justify-content-space-between">
+        <button>
+            Filter & sort
+            <i class="fa-solid fa-filter"></i>
+        </button>
+
+        <button class="bg-blue">
+            Create a new character
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+
+    <div class="col gap-18">
+        <div *ngFor="let character of characters" class="col gap-12 bg-veryDarkGrey py-12 px-24 border-smooth shadow-light">
+            <div class="row gap-12">
+                <div class="tag" *ngFor="let tag of tags">{{tag.text}}</div>
+            </div>
+            <div class="row align-items-center gap-12">
+                <h3>{{character.name}}</h3>
+                <p>{{character.race}}</p>
+            </div>
+        </div>
+    </div>
+</div>
