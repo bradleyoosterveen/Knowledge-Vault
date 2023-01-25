@@ -11,6 +11,7 @@ import { CampaignService } from 'src/app/services/campaign.service';
 export class CampaignsViewComponent {
   public campaigns: Campaign[] = [];
   public createCampaignModalOpen: boolean = false;
+  public clearAllDataModalOpen: boolean = false;
 
   constructor(
     private campaignService: CampaignService
@@ -22,7 +23,19 @@ export class CampaignsViewComponent {
     this.createCampaignModalOpen = true;
   }
 
+  public onClearAllDataModalClick(): void {
+    this.clearAllDataModalOpen = true;
+  }
+
   onSubmitEvent(campaign: Campaign): void {
     this.createCampaignModalOpen = false;
+  }
+
+  onClearAllDataClick(): void {
+    localStorage.clear();
+
+    this.clearAllDataModalOpen = false;
+
+    window.location.reload();
   }
 }
