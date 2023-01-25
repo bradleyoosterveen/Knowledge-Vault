@@ -34,6 +34,6 @@ export class CharactersViewComponent {
   onSubmitEvent(character: Character): void {
     this.createCharacterModalOpen = false;
 
-    this.characters = CHARACTERS.filter(character => character.campaignId === this.campaignId)
+    this.characters = this.characterService.getCampaignCharacters(this.campaignId);
   }
 }
