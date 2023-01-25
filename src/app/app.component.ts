@@ -12,4 +12,8 @@ export class AppComponent {
   title = 'Knowledge-Vault';
 
   campaigns: Campaign[] = CAMPAIGNS;
+
+  constructor() {
+    console.log("Source code: https://github.com/TheRealHavoc/Knowledge-Vault/issues")
+  }
 }
