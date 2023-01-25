@@ -1,25 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Character } from '../models/character';
-import { CHARACTERS } from '../models/mock/mockCharacters';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
-  characters: Character[] = CHARACTERS;
+  private readonly _key: string = 'characters';
+
+  characters: Character[] = [];
 
   constructor() { }
 
   getCharacters(): Character[] {
+    let data = JSON.parse(localStorage.getItem(this._key) || "{}");
+    
+    if (Array.isArray(data))
+    this.characters = data;
+
     return this.characters;
   }
 
   getCampaignCharacters(campaignId: number): Character[] {
-    return this.characters.filter(character => character.campaignId === campaignId)
+    return this.characters.filter(character => character.campaignId === campaignId);
   }
 
   addCharacter(charachter: Character): Character {
     this.characters.push(charachter);
+
+    localStorage.setItem(this._key, JSON.stringify(this.characters));
 
     return charachter;
   }

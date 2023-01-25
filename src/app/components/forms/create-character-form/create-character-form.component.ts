@@ -51,6 +51,8 @@ export class CreateCharacterFormComponent {
     this.characterService.addCharacter(character);
 
     this.submitEvent.emit(character);
+
+    this.form.reset(this.initialFormValues);
   }
 
   onResetToDefaultsClick(): void {

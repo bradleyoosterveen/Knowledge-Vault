@@ -6,12 +6,14 @@ import { CAMPAIGNS } from '../models/mock/mockCampaigns';
   providedIn: 'root'
 })
 export class CampaignService {
+  private readonly _key: string = 'campaigns';
+
   campaigns: Campaign[] = [];
 
   constructor() {}
 
   getCampaigns(): Campaign[] {
-    let data = JSON.parse(localStorage.getItem('campaigns') || "{}");
+    let data = JSON.parse(localStorage.getItem(this._key) || "{}");
 
     if (Array.isArray(data))
       this.campaigns = data;
@@ -32,7 +34,7 @@ export class CampaignService {
   addCampaign(campaign: Campaign): Campaign {
     this.campaigns.push(campaign);
 
-    localStorage.setItem('campaigns', JSON.stringify(this.campaigns));
+    localStorage.setItem(this._key, JSON.stringify(this.campaigns));
 
     return campaign;
   }

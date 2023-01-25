@@ -44,6 +44,8 @@ export class CreateCampaignFormComponent {
     this.campaignService.addCampaign(campaign);
 
     this.submitEvent.emit(campaign);
+
+    this.form.reset(this.initialFormValues);
   }
 
   onResetToDefaultsClick(): void {

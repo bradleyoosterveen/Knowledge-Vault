@@ -21,5 +21,11 @@
                 <p>{{character.race}}</p>
             </div>
         </div>
+
+        <ng-container *ngIf="characters.length === 0">
+            <div class="col gap-12 bg-veryDarkGrey py-12 px-24 border-smooth shadow-light">
+                <p class="subtle">No characters found</p>
+            </div>
+        </ng-container>
     </div>
 </div>
