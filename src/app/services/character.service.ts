@@ -11,17 +11,21 @@ export class CharacterService {
 
   constructor() { }
 
-  getCharacters(): Character[] {
+  private all(): Character[] {
     let data = JSON.parse(localStorage.getItem(this._key) || "{}");
-    
-    if (Array.isArray(data))
-    this.characters = data;
 
-    return this.characters;
+    if (Array.isArray(data))
+      return data;
+
+    return [];
+  }
+
+  getCharacters(): Character[] {
+    return this.characters = this.all();
   }
 
   getCampaignCharacters(campaignId: number): Character[] {
-    return this.characters.filter(character => character.campaignId === campaignId);
+    return this.characters = this.all().filter(character => character.campaignId === campaignId);
   }
 
   addCharacter(charachter: Character): Character {
