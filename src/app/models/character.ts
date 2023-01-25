@@ -1,5 +1,3 @@
-import { Campaign } from "./campaign";
-
 export interface Character {
     id: number;
     name: string;

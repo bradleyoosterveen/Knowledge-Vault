@@ -4,6 +4,19 @@
     <app-create-campaign-form body (submitEvent)="onSubmitEvent($event)"></app-create-campaign-form>
 </app-modal>
 
+<app-modal [(open)]="clearAllDataModalOpen">
+    <div title>Are you sure?</div>
+
+    <div body class="col gap-24">
+        <p>Are you sure you want to delete all data? This action can't be reversed!</p>
+        
+        <div class="row gap-24 justify-content-flex-end">
+            <button type="button" class="button-secondary" (click)="onClearAllDataClick()">Yes</button>
+            <button type="submit" class="bg-blue">No</button>
+        </div>
+    </div>
+</app-modal>
+
 <ng-container *ngIf="campaigns.length === 0">
     <div class="col align-items-center gap-12 py-12 px-24 absolute-center">
         <h1>Welcome to the knowledge vault!</h1>
@@ -19,10 +32,17 @@
     <div class="col gap-32 px-54 py-32">
         <div class="row justify-content-space-between">
             <h1>Campaigns</h1>
-            <button (click)="onCreateCampaignModalClick()">
-                Create a new campaign
-                <i class="fa-solid fa-plus"></i>
-            </button>
+            <div class="row gap-12">
+                <button class="button-secondary" (click)="onClearAllDataModalClick()">
+                    Clear all data
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+
+                <button (click)="onCreateCampaignModalClick()">
+                    Create a new campaign
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
         </div>
 
         <div class="grid">
