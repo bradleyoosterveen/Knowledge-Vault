@@ -1,1 +1,22 @@
-<app-work-in-progress></app-work-in-progress>
+<div class="col gap-32">
+    <div class="row justify-content-space-between align-items-center">
+        <h1>General information</h1>
+    </div>
+
+    <form class="col gap-24">
+        <div class="col gap-6">
+            <label for="name">Name</label>
+            <input type="text" id="name" readonly value="{{campaign.name}}">
+        </div>
+
+        <div class="col gap-6">
+            <label for="description">Description</label>
+            <textarea rows="3" value="{{campaign.description}}" readonly></textarea>
+        </div>
+
+        <div class="col gap-6">
+            <label for="description">Banner image URL</label>
+            <input type="text" id="name" readonly value="{{campaign.bannerURL}}">
+        </div>
+    </form>
+</div>
