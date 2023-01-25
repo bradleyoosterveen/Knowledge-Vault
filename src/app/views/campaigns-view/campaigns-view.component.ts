@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Campaign } from 'src/app/models/campaign';
 import { CAMPAIGNS } from 'src/app/models/mock/mockCampaigns';
+import { CampaignService } from 'src/app/services/campaign.service';
 
 @Component({
   selector: 'app-campaigns-view',
@@ -8,9 +9,14 @@ import { CAMPAIGNS } from 'src/app/models/mock/mockCampaigns';
   styleUrls: ['./campaigns-view.component.scss']
 })
 export class CampaignsViewComponent {
-  public campaigns: Campaign[] = CAMPAIGNS;
-
+  public campaigns: Campaign[] = [];
   public createCampaignModalOpen: boolean = false;
+
+  constructor(
+    private campaignService: CampaignService
+  ) {
+    this.campaigns = this.campaignService.getCampaigns();
+  }
 
   public onCreateCampaignModalClick(): void {
     this.createCampaignModalOpen = true;

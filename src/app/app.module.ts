@@ -16,6 +16,7 @@ import { SpellsViewComponent } from './views/spells-view/spells-view.component';
 import { ModalComponent } from './components/modals/modal/modal.component';
 import { CreateCampaignFormComponent } from './components/forms/create-campaign-form/create-campaign-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateCharacterFormComponent } from './components/forms/create-character-form/create-character-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AreasViewComponent,
     SpellsViewComponent,
     ModalComponent,
-    CreateCampaignFormComponent
+    CreateCampaignFormComponent,
+    CreateCharacterFormComponent
   ],
   imports: [
     BrowserModule,
