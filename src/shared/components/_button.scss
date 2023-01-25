@@ -19,6 +19,10 @@ button, .button {
     }
 }
 
+.button-secondary {
+    background-color: var(--color-veryDarkGrey);
+}
+
 .button-icon {
     cursor: pointer;
 }
