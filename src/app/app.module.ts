@@ -17,6 +17,7 @@ import { ModalComponent } from './components/modals/modal/modal.component';
 import { CreateCampaignFormComponent } from './components/forms/create-campaign-form/create-campaign-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCharacterFormComponent } from './components/forms/create-character-form/create-character-form.component';
+import { WorkInProgressComponent } from './components/work-in-progress/work-in-progress.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CreateCharacterFormComponent } from './components/forms/create-characte
     SpellsViewComponent,
     ModalComponent,
     CreateCampaignFormComponent,
-    CreateCharacterFormComponent
+    CreateCharacterFormComponent,
+    WorkInProgressComponent
   ],
   imports: [
     BrowserModule,
