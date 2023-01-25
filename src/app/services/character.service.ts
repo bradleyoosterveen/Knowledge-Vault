@@ -25,6 +25,9 @@ export class CharacterService {
   }
 
   getNextID(): number {
+    if (this.characters.length === 0)
+      return 1;
+
     return (Math.max(...this.characters.map(o => o.id)) + 1);
   }
 }

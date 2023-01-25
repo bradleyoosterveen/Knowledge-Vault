@@ -38,6 +38,9 @@ export class CampaignService {
   }
 
   getNextID(): number {
+    if (this.campaigns.length === 0)
+      return 1;
+
     return (Math.max(...this.campaigns.map(o => o.id)) + 1);
   }
 }

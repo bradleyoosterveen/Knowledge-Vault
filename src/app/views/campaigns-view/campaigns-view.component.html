@@ -4,31 +4,44 @@
     <app-create-campaign-form body (submitEvent)="onSubmitEvent($event)"></app-create-campaign-form>
 </app-modal>
 
-<div class="col gap-32 px-54 py-32">
-    <div class="row justify-content-space-between">
-        <h1>Campaigns</h1>
+<ng-container *ngIf="campaigns.length === 0">
+    <div class="col align-items-center gap-12 py-12 px-24 absolute-center">
+        <h1>Welcome to the knowledge vault!</h1>
+
         <button (click)="onCreateCampaignModalClick()">
-            Create a new campaign
+            Start by creating a new campaign
             <i class="fa-solid fa-plus"></i>
         </button>
     </div>
+</ng-container>
 
-    <div class="grid">
-        <ng-container *ngFor="let campaign of campaigns">
-            <a [routerLink]="['/campaign', campaign.id]" class="col bg-veryDarkGrey shadow-light border-smooth" style="overflow: hidden;">
-                <div class="col" style="overflow: hidden;">
-                    <img src="{{campaign.bannerURL}}" alt="" style="height: 220px;">
-                </div>
-                <div class="col gap-12 py-12 px-24">
-                    <h2>{{campaign.name}}</h2>
-        
-                    <div *ngIf="campaign.tags && campaign.tags.length > 0" class="row gap-12">
-                        <div class="tag" *ngFor="let tag of campaign.tags">{{tag.text}}</div>
+<ng-container *ngIf="campaigns.length > 0">
+    <div class="col gap-32 px-54 py-32">
+        <div class="row justify-content-space-between">
+            <h1>Campaigns</h1>
+            <button (click)="onCreateCampaignModalClick()">
+                Create a new campaign
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+        <div class="grid">
+            <ng-container *ngFor="let campaign of campaigns">
+                <a [routerLink]="['/campaign', campaign.id]" class="col bg-veryDarkGrey shadow-light border-smooth" style="overflow: hidden;">
+                    <div class="col" style="overflow: hidden;">
+                        <img src="{{campaign.bannerURL}}" alt="" style="height: 220px;">
                     </div>
-    
-                    <p class="subtle" *ngIf="!campaign.tags || campaign.tags.length < 1">No tags available</p>
-                </div>
-            </a>
-        </ng-container>
+                    <div class="col gap-12 py-12 px-24">
+                        <h2>{{campaign.name}}</h2>
+            
+                        <div *ngIf="campaign.tags && campaign.tags.length > 0" class="row gap-12">
+                            <div class="tag" *ngFor="let tag of campaign.tags">{{tag.text}}</div>
+                        </div>
+        
+                        <p class="subtle" *ngIf="!campaign.tags || campaign.tags.length < 1">No tags available</p>
+                    </div>
+                </a>
+            </ng-container>
+        </div>
     </div>
-</div>
+</ng-container>
