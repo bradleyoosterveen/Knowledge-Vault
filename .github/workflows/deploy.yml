@@ -2,7 +2,7 @@ name: Build and deploy to Github Pages
 
 on:
   push:
-    branches: [ master, main, development ]
+    branches: [ master ]
 
 jobs:
   build:
