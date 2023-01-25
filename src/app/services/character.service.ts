@@ -15,17 +15,17 @@ export class CharacterService {
     let data = JSON.parse(localStorage.getItem(this._key) || "{}");
 
     if (Array.isArray(data))
-      return data;
+      this.characters = data;
 
-    return [];
+    return this.characters;
   }
 
   getCharacters(): Character[] {
-    return this.characters = this.all();
+    return this.all();
   }
 
   getCampaignCharacters(campaignId: number): Character[] {
-    return this.characters = this.all().filter(character => character.campaignId === campaignId);
+    return this.all().filter(character => character.campaignId === campaignId);
   }
 
   addCharacter(charachter: Character): Character {
