@@ -21,7 +21,7 @@
     <div class="col align-items-center gap-12 py-12 px-24 absolute-center">
         <h1>Welcome to the knowledge vault!</h1>
 
-        <button (click)="onCreateCampaignModalClick()">
+        <button (click)="createCampaignModalOpen = true">
             Start by creating a new campaign
             <i class="fa-solid fa-plus"></i>
         </button>
@@ -33,12 +33,12 @@
         <div class="row justify-content-space-between">
             <h1>Campaigns</h1>
             <div class="row gap-12">
-                <button class="button-secondary" (click)="onClearAllDataModalClick()">
+                <button class="button-secondary" (click)="clearAllDataModalOpen = true">
                     Clear all data
                     <i class="fa-regular fa-trash-can"></i>
                 </button>
 
-                <button (click)="onCreateCampaignModalClick()">
+                <button (click)="createCampaignModalOpen = true">
                     Create a new campaign
                     <i class="fa-solid fa-plus"></i>
                 </button>

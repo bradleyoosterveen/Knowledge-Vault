@@ -27,10 +27,6 @@ export class CharactersViewComponent {
     this.characters = this.characterService.getCampaignCharacters(this.campaignId);
   }
 
-  public onModalClick(): void {
-    this.createCharacterModalOpen = true;
-  }
-
   onSubmitEvent(character: Character): void {
     this.createCharacterModalOpen = false;
 
