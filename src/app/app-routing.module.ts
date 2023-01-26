@@ -4,6 +4,7 @@ import { AreasViewComponent } from './views/areas-view/areas-view.component';
 import { CampaignDetailsViewComponent } from './views/campaign-details-view/campaign-details-view.component';
 import { CampaignViewComponent } from './views/campaign-view/campaign-view.component';
 import { CampaignsViewComponent } from './views/campaigns-view/campaigns-view.component';
+import { CharacterViewComponent } from './views/character-view/character-view.component';
 import { CharactersViewComponent } from './views/characters-view/characters-view.component';
 import { ItemsViewComponent } from './views/items-view/items-view.component';
 import { NotFoundViewComponent } from './views/not-found-view/not-found-view.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
     {path: '', redirectTo: 'general-information', pathMatch: 'full'},
     {path: 'general-information', component: CampaignDetailsViewComponent},
     {path: 'characters', component: CharactersViewComponent},
+    {path: 'characters/:characterid', component: CharacterViewComponent},
     {path: 'sites', component: SitesViewComponent},
     {path: 'regions', component: RegionsViewComponent},
     {path: 'areas', component: AreasViewComponent},
