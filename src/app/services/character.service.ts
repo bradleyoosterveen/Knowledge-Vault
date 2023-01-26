@@ -28,6 +28,10 @@ export class CharacterService {
     return this.all().filter(character => character.campaignId === campaignId);
   }
 
+  getCharacter(id: number): Character {
+    return this.all().filter(character => character.id === id)[0];
+  }
+
   addCharacter(charachter: Character): Character {
     this.characters.push(charachter);
 

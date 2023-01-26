@@ -19,14 +19,6 @@ export class CampaignsViewComponent {
     this.campaigns = this.campaignService.getCampaigns();
   }
 
-  public onCreateCampaignModalClick(): void {
-    this.createCampaignModalOpen = true;
-  }
-
-  public onClearAllDataModalClick(): void {
-    this.clearAllDataModalOpen = true;
-  }
-
   onSubmitEvent(campaign: Campaign): void {
     this.createCampaignModalOpen = false;
   }
