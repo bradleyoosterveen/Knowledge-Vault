@@ -1,0 +1,22 @@
+<div class="col gap-24">
+    <div class="row justify-content-space-between align-items-center">
+        <h1>{{character.name}}</h1>
+    </div>
+
+    <form class="col gap-18">
+        <div class="col gap-6">
+            <label for="name">Name</label>
+            <input type="text" id="name" readonly value="{{character.name}}">
+        </div>
+
+        <div class="col gap-6">
+            <label for="race">Race</label>
+            <input type="text" id="race" readonly value="{{character.race}}">
+        </div>
+
+        <div class="col gap-6">
+            <label for="notes">Notes</label>
+            <textarea id="notes" rows="3" value="{{character.notes}}" readonly></textarea>
+        </div>
+    </form>
+</div>

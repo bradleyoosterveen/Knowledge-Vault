@@ -118,3 +118,15 @@ img {
 .subtle {
     opacity: 0.6;
 }
+
+button,
+.button,
+.button-secondary,
+.button-icon,
+.button-long,
+a {
+    transition: 0.1s;
+    &:hover {
+        opacity: 0.6;
+    }
+}

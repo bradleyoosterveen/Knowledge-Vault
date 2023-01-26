@@ -18,6 +18,7 @@ import { CreateCampaignFormComponent } from './components/forms/create-campaign-
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCharacterFormComponent } from './components/forms/create-character-form/create-character-form.component';
 import { WorkInProgressComponent } from './components/work-in-progress/work-in-progress.component';
+import { CharacterViewComponent } from './views/character-view/character-view.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { WorkInProgressComponent } from './components/work-in-progress/work-in-p
     ModalComponent,
     CreateCampaignFormComponent,
     CreateCharacterFormComponent,
-    WorkInProgressComponent
+    WorkInProgressComponent,
+    CharacterViewComponent
   ],
   imports: [
     BrowserModule,
