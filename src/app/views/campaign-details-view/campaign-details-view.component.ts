@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Campaign } from 'src/app/models/campaign';
 import { CampaignService } from 'src/app/services/campaign.service';
 
@@ -9,10 +9,12 @@ import { CampaignService } from 'src/app/services/campaign.service';
   styleUrls: ['./campaign-details-view.component.scss']
 })
 export class CampaignDetailsViewComponent {
+  confirmCampaignDeletionModalOpen: boolean = false;
   campaignId: number;
   campaign: Campaign;
 
   constructor(
+    private router: Router,
     private campaignService: CampaignService,
     private route: ActivatedRoute
   ) {
@@ -23,5 +25,11 @@ export class CampaignDetailsViewComponent {
     }
 
     this.campaign = this.campaignService.getCampaign(this.campaignId);
+  }
+  
+  onCampaignDeleteClick(): void {
+    this.campaignService.deleteCampaign(this.campaign);
+
+    this.router.navigate(['/']);
   }
 }
