@@ -6,4 +6,5 @@ export interface Campaign {
     description?: string;
     bannerURL: string;
     tags?: Tag[];
+    notes?: string;
 }
