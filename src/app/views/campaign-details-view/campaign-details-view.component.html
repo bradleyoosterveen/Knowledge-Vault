@@ -1,6 +1,20 @@
+<app-modal [(open)]="confirmCampaignDeletionModalOpen">
+    <div title>Are you sure?</div>
+
+    <div body class="col gap-24">
+        <p>Are you sure you want to delete this campaign? This action can't be reversed!</p>
+        
+        <div class="row gap-24 justify-content-flex-end">
+            <button type="button" class="button-secondary" (click)="onCampaignDeleteClick()">Yes</button>
+            <button type="submit" class="bg-blue" (click)="confirmCampaignDeletionModalOpen = false">No</button>
+        </div>
+    </div>
+</app-modal>
+
 <div class="col gap-24">
     <div class="row justify-content-space-between align-items-center">
         <h1>General information</h1>
+        <button class="button-secondary" (click)="confirmCampaignDeletionModalOpen = true">Delete</button>
     </div>
 
     <form class="col gap-18">

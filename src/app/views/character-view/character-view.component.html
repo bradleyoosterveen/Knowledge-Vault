@@ -1,6 +1,20 @@
+<app-modal [(open)]="confirmCharacterDeletionModalOpen">
+    <div title>Are you sure?</div>
+
+    <div body class="col gap-24">
+        <p>Are you sure you want to delete this character? This action can't be reversed!</p>
+        
+        <div class="row gap-24 justify-content-flex-end">
+            <button type="button" class="button-secondary" (click)="onCharacterDeleteClick()">Yes</button>
+            <button type="submit" class="bg-blue" (click)="confirmCharacterDeletionModalOpen = false">No</button>
+        </div>
+    </div>
+</app-modal>
+
 <div class="col gap-24">
     <div class="row justify-content-space-between align-items-center">
         <h1>{{character.name}}</h1>
+        <button class="button-secondary" (click)="confirmCharacterDeletionModalOpen = true">Delete</button>
     </div>
 
     <form class="col gap-18">

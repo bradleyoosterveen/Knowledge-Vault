@@ -19,8 +19,4 @@ export class CampaignViewComponent {
 
     this.campaign = this.campaignService.getCampaign(id);
   }
-
-  ngOnInit(): void {
-
-  }
 }
