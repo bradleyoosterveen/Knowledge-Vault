@@ -40,6 +40,16 @@ export class CharacterService {
     return charachter;
   }
 
+  deleteCharacter(charachter: Character): Character {
+    let characters: Character[] = this.all();
+
+    this.characters = characters.filter(c => c.id !== charachter.id)
+
+    this._updateStorage();
+
+    return charachter;
+  }
+
   getNextID(): number {
     if (this.characters.length === 0)
       return 1;
