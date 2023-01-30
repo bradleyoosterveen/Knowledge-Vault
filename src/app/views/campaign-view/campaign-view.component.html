@@ -1,10 +1,29 @@
+<app-modal [(open)]="confirmCampaignDeletionModalOpen">
+    <div title>Are you sure?</div>
+
+    <div body class="col gap-24">
+        <p>Are you sure you want to delete this campaign? This action can't be reversed!</p>
+        
+        <div class="row gap-24 justify-content-flex-end">
+            <button type="button" class="button-secondary" (click)="onCampaignDeleteClick()">Yes</button>
+            <button type="submit" class="bg-blue" (click)="confirmCampaignDeletionModalOpen = false">No</button>
+        </div>
+    </div>
+</app-modal>
+
 <div class="col gap-24">
-    <div class="shadow" style="background: linear-gradient(270deg, rgba(34,34,34,0) 0%, rgba(34,34,34,1) 100%), url({{campaign.bannerURL}}); background-size: cover; background-position: center;">
-        <div class="col px-54 py-24 gap-12">
+    <div class="shadow row justify-content-space-between align-items-center px-54 py-24" style="background: linear-gradient(270deg, rgba(34,34,34,0) 0%, rgba(34,34,34,1) 100%), url({{campaign.bannerURL}}); background-size: cover; background-position: center;">
+        <div class="col gap-12">
             <a routerLink="" class="row align-items-center gap-6">
                 <p><small><i class="fa-solid fa-chevron-left"></i></small> View all your campaigns</p>
             </a>
             <h2>{{campaign.name}}</h2>
+        </div>
+
+        <div class="col">
+            <div class="row">
+                <button class="button-secondary" (click)="confirmCampaignDeletionModalOpen = true">Delete</button>
+            </div>
         </div>
     </div>
     

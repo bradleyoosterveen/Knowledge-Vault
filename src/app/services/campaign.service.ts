@@ -39,6 +39,18 @@ export class CampaignService {
     return campaign;
   }
 
+  deleteCampaign(campaign: Campaign): Campaign {
+    let campaigns: Campaign[] = this.getCampaigns();
+
+    this.campaigns = campaigns.filter(c => c.id !== campaign.id);
+
+    console.log(this.campaigns)
+
+    localStorage.setItem(this._key, JSON.stringify(this.campaigns));
+
+    return campaign;
+  }
+
   getNextID(): number {
     if (this.campaigns.length === 0)
       return 1;
