@@ -34,7 +34,7 @@ export class CampaignService {
   addCampaign(campaign: Campaign): Campaign {
     this.campaigns.push(campaign);
 
-    localStorage.setItem(this._key, JSON.stringify(this.campaigns));
+    this._updateStorage();
 
     return campaign;
   }
@@ -44,9 +44,7 @@ export class CampaignService {
 
     this.campaigns = campaigns.filter(c => c.id !== campaign.id);
 
-    console.log(this.campaigns)
-
-    localStorage.setItem(this._key, JSON.stringify(this.campaigns));
+    this._updateStorage();
 
     return campaign;
   }
@@ -56,5 +54,9 @@ export class CampaignService {
       return 1;
 
     return (Math.max(...this.campaigns.map(o => o.id)) + 1);
+  }
+
+  private _updateStorage() {
+    localStorage.setItem(this._key, JSON.stringify(this.campaigns));
   }
 }

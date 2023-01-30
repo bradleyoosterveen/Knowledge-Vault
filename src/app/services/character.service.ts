@@ -35,7 +35,7 @@ export class CharacterService {
   addCharacter(charachter: Character): Character {
     this.characters.push(charachter);
 
-    localStorage.setItem(this._key, JSON.stringify(this.characters));
+    this._updateStorage();
 
     return charachter;
   }
@@ -45,5 +45,9 @@ export class CharacterService {
       return 1;
 
     return (Math.max(...this.characters.map(o => o.id)) + 1);
+  }
+
+  private _updateStorage() {
+    localStorage.setItem(this._key, JSON.stringify(this.characters));
   }
 }
