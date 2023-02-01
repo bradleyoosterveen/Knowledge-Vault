@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Campaign } from 'src/app/models/campaign';
 import { CampaignService } from 'src/app/services/campaign.service';
 
@@ -11,6 +12,8 @@ import { CampaignService } from 'src/app/services/campaign.service';
 export class CampaignViewComponent {
   public campaign: Campaign;
 
+  updatedSubscription: Subscription;
+
   constructor(
     private route: ActivatedRoute,
     private campaignService: CampaignService
@@ -18,5 +21,13 @@ export class CampaignViewComponent {
     let id: number = Number(this.route.snapshot.paramMap.get('id'));
 
     this.campaign = this.campaignService.getCampaign(id);
+
+    this.updatedSubscription = this.campaignService.updated.subscribe(campaign => {
+      this.campaign = campaign;
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.updatedSubscription.unsubscribe();
   }
 }

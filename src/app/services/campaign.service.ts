@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Campaign } from '../models/campaign';
 import { CAMPAIGNS } from '../models/mock/mockCampaigns';
 
@@ -9,6 +10,8 @@ export class CampaignService {
   private readonly _key: string = 'campaigns';
 
   campaigns: Campaign[] = [];
+
+  updated = new Subject<Campaign>();
 
   constructor() {}
 
@@ -45,6 +48,15 @@ export class CampaignService {
     this.campaigns = campaigns.filter(c => c.id !== campaign.id);
 
     this._updateStorage();
+
+    return campaign;
+  }
+
+  updateCampaign(campaign: Campaign): Campaign {
+    this.deleteCampaign(campaign);
+    this.addCampaign(campaign);
+
+    this.updated.next(campaign);
 
     return campaign;
   }

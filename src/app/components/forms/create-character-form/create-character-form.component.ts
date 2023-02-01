@@ -14,7 +14,7 @@ export class CreateCharacterFormComponent {
 
   campaignId: number;
 
-  form!: FormGroup;
+  form: FormGroup;
   initialFormValues: any;
 
   constructor(
