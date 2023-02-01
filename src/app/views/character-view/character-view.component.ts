@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Character } from 'src/app/models/character';
+import { SEEDALIGNMENT } from 'src/app/models/seed/seedAlignment';
+import { SEEDSIZE } from 'src/app/models/seed/seedSize';
 import { AlertService } from 'src/app/services/alert.service';
 import { CharacterService } from 'src/app/services/character.service';
 
@@ -19,6 +21,9 @@ export class CharacterViewComponent {
   initialFormValues: any;
 
   updatedSubscription: Subscription;
+
+  sizeSeed = SEEDSIZE;
+  alignmentSeed = SEEDALIGNMENT;
 
   constructor(
     private router: Router,
@@ -65,6 +70,8 @@ export class CharacterViewComponent {
   onSaveChangesClick(): void {
     if (!this.form.valid)
       return;
+
+    console.log(this.form.get('alignment')?.value)
 
     let charachter: Character = {
       id: this.character.id,

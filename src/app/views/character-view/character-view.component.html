@@ -47,12 +47,16 @@
 
             <div class="col gap-6">
                 <label for="size">Size</label>
-                <input type="text" id="size" formControlName="size">
+                <select formControlName="size" id="size">
+                    <option *ngFor="let s of sizeSeed" value="{{s.text}}" [selected]="s.text === character.size">{{s.text}}</option>
+                </select>
             </div>
 
             <div class="col gap-6">
                 <label for="alignment">Alignment</label>
-                <input type="text" id="alignment" formControlName="alignment">
+                <select formControlName="alignment" id="alignment">
+                    <option *ngFor="let a of alignmentSeed" value="{{a.text}}" [selected]="a.text === character.alignment">{{a.text}}</option>
+                </select>
             </div>
         </div>
 

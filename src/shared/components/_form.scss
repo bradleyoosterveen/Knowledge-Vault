@@ -1,20 +1,22 @@
-form {
-    label {
-        font-size: 16px;
-        font-weight: 300;
-    }
+label {
+    font-size: 16px;
+    font-weight: 300;
+}
 
-    input, textarea {
+input, textarea, select {
+    border: none;
+    background: var(--color-veryDarkGrey);
+    padding: 12px 24px;
+    border-radius: 4px;
+    box-shadow: var(--shadow-light);
+
+    &:active:not(select) {
         border: none;
-        background: var(--color-veryDarkGrey);
-        padding: 12px 24px;
-        border-radius: 4px;
-        box-shadow: var(--shadow-light);
-
-        &:active {
-            border: none;
-        }
-
-        resize: none;
     }
+
+    resize: none;
+}
+
+select {
+    border-right: 16px solid transparent;
 }
