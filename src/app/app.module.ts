@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCharacterFormComponent } from './components/forms/create-character-form/create-character-form.component';
 import { WorkInProgressComponent } from './components/work-in-progress/work-in-progress.component';
 import { CharacterViewComponent } from './views/character-view/character-view.component';
+import { AlertsComponent } from './components/alerts/alerts.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CharacterViewComponent } from './views/character-view/character-view.co
     CreateCampaignFormComponent,
     CreateCharacterFormComponent,
     WorkInProgressComponent,
-    CharacterViewComponent
+    CharacterViewComponent,
+    AlertsComponent
   ],
   imports: [
     BrowserModule,

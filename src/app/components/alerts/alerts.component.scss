@@ -1,0 +1,28 @@
+.alerts {
+    z-index: 9;
+
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .alert {
+        width: 200px;
+    }
+
+    .success {
+        background-color: var(--color-green);
+    }
+
+    .error {
+        background-color: var(--color-red);
+    }
+
+    .warning {
+        background-color: var(--color-orange);
+    }
+
+    .info {
+        background-color: var(--color-blue);
+    }
+}

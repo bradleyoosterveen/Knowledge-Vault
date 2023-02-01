@@ -1,0 +1,6 @@
+<div class="alerts col gap-12">
+    <div *ngFor="let alert of alerts" class="alert col gap-6 border-smooth shadow-light py-12 px-24" [ngClass]="className(alert)">
+        <h3>{{alert.title}}</h3>
+        <p *ngIf="alert.message">{{alert.message}}</p>
+    </div>
+</div>

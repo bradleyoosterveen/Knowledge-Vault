@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Campaign } from 'src/app/models/campaign';
 import { CAMPAIGNS } from 'src/app/models/mock/mockCampaigns';
+import { AlertService } from 'src/app/services/alert.service';
 import { CampaignService } from 'src/app/services/campaign.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class CampaignsViewComponent {
   public clearAllDataModalOpen: boolean = false;
 
   constructor(
-    private campaignService: CampaignService
+    private campaignService: CampaignService,
+    private alertService: AlertService
   ) {
     this.campaigns = this.campaignService.getCampaigns();
   }
@@ -26,8 +28,10 @@ export class CampaignsViewComponent {
   onClearAllDataClick(): void {
     localStorage.clear();
 
-    this.clearAllDataModalOpen = false;
+    this.campaigns = [];
 
-    window.location.reload();
+    this.alertService.success("Data deleted.");
+
+    this.clearAllDataModalOpen = false;
   }
 }
