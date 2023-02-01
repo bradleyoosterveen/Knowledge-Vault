@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Campaign } from 'src/app/models/campaign';
+import { AlertService } from 'src/app/services/alert.service';
 import { CampaignService } from 'src/app/services/campaign.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class CampaignDetailsViewComponent {
   constructor(
     private router: Router,
     private campaignService: CampaignService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _alertService: AlertService
   ) {
     if (this.route.parent === null) {
       this.campaignId = Number(this.route.snapshot.paramMap.get('id'));
@@ -49,6 +51,8 @@ export class CampaignDetailsViewComponent {
     this.campaignService.deleteCampaign(this.campaign);
 
     this.router.navigate(['/']);
+
+    this._alertService.success('Campaign deleted');
   }
 
   onResetToDefaultClick(): void {
@@ -71,5 +75,7 @@ export class CampaignDetailsViewComponent {
 
     this.form.markAsPristine();
     this.initialFormValues = this.form.value;
+
+    this._alertService.success('Campaign updated');
   }
 }
