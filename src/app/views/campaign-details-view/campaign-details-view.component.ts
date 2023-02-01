@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Campaign } from 'src/app/models/campaign';
 import { CampaignService } from 'src/app/services/campaign.service';
@@ -10,8 +11,12 @@ import { CampaignService } from 'src/app/services/campaign.service';
 })
 export class CampaignDetailsViewComponent {
   confirmCampaignDeletionModalOpen: boolean = false;
+
   campaignId: number;
   campaign: Campaign;
+
+  form: FormGroup;
+  initialFormValues: any;
 
   constructor(
     private router: Router,
@@ -25,11 +30,43 @@ export class CampaignDetailsViewComponent {
     }
 
     this.campaign = this.campaignService.getCampaign(this.campaignId);
+
+    this.form = new FormGroup({
+      name: new FormControl(this.campaign.name, [
+        Validators.required
+      ]),
+      description: new FormControl(this.campaign.description),
+      bannerURL: new FormControl(this.campaign.bannerURL, [
+        Validators.required
+      ]),
+      notes: new FormControl(this.campaign.notes)
+    })
+
+    this.initialFormValues = this.form.value;
   }
   
   onCampaignDeleteClick(): void {
     this.campaignService.deleteCampaign(this.campaign);
 
     this.router.navigate(['/']);
+  }
+
+  onResetToDefaultClick(): void {
+    this.form.reset(this.initialFormValues);
+  }
+
+  onSaveChangesClick(): void {
+    if (!this.form.valid)
+      return;
+
+    let campaign: Campaign = {
+      id: this.campaign.id,
+      name: this.form.get('name')?.value || '',
+      description: this.form.get('description')?.value || '',
+      bannerURL: this.form.get('bannerURL')?.value || '',
+      notes: this.form.get('notes')?.value || ''
+    }
+
+    this.campaignService.updateCampaign(campaign)
   }
 }
