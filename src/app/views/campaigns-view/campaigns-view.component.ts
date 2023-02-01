@@ -30,7 +30,7 @@ export class CampaignsViewComponent {
 
     this.campaigns = [];
 
-    this.alertService.success("Data deleted!", "");
+    this.alertService.success("Data deleted.");
 
     this.clearAllDataModalOpen = false;
   }
