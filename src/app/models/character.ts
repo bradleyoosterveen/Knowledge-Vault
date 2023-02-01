@@ -11,5 +11,6 @@ export interface Character {
     age?: number;
     size?: string;
     alignment?: string;
+    description?: string;
     notes?: string;
 }
