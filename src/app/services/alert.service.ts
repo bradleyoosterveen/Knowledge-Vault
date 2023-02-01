@@ -15,15 +15,15 @@ export class AlertService {
     return this._subject.asObservable();
   }
 
-  info(title: string, message?: string, timeout = 3000) {
+  info(title: string, message?: string, timeout = 4000) {
     this._subject.next(new Alert(this._id++, AlertType.info, title, timeout, message));
   }
 
-  success(title: string, message?: string, timeout = 3000) {
+  success(title: string, message?: string, timeout = 4000) {
     this._subject.next(new Alert(this._id++, AlertType.success, title, timeout, message));
   }
 
-  warning(title: string, message?: string, timeout = 3000) {
+  warning(title: string, message?: string, timeout = 4000) {
     this._subject.next(new Alert(this._id++, AlertType.warning, title, timeout, message));
   }
 
