@@ -28,10 +28,6 @@ export class CampaignsViewComponent {
   onClearAllDataClick(): void {
     localStorage.clear();
 
-    this.campaigns = [];
-
-    this.alertService.success("Data deleted.");
-
-    this.clearAllDataModalOpen = false;
+    window.location.reload();
   }
 }
