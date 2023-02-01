@@ -28,3 +28,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: dist/knowledge-vault
           enable_jekyll: true
+          cname: mijnvolledigenaam.nl
