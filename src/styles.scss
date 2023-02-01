@@ -126,7 +126,7 @@ button,
 .button-long,
 a {
     transition: 0.1s;
-    &:hover {
+    &:hover:not([disabled]) {
         opacity: 0.6;
     }
 }
