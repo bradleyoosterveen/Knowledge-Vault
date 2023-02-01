@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Character } from '../models/character';
 
 @Injectable({
@@ -8,6 +9,8 @@ export class CharacterService {
   private readonly _key: string = 'characters';
 
   characters: Character[] = [];
+
+  updated = new Subject<Character>();
 
   constructor() { }
 
@@ -46,6 +49,15 @@ export class CharacterService {
     this.characters = characters.filter(c => c.id !== charachter.id)
 
     this._updateStorage();
+
+    return charachter;
+  }
+
+  updateCharacter(charachter: Character): Character {
+    this.deleteCharacter(charachter);
+    this.addCharacter(charachter);
+
+    this.updated.next(charachter);
 
     return charachter;
   }

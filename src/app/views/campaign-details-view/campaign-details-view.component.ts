@@ -40,7 +40,7 @@ export class CampaignDetailsViewComponent {
         Validators.required
       ]),
       notes: new FormControl(this.campaign.notes)
-    })
+    });
 
     this.initialFormValues = this.form.value;
   }

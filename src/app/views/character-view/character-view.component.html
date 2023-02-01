@@ -14,45 +14,51 @@
 <div class="col gap-24">
     <div class="row justify-content-space-between align-items-center">
         <h1>{{character.name}}</h1>
-        <button class="button-secondary" (click)="confirmCharacterDeletionModalOpen = true">Delete</button>
+        <div class="row gap-12">
+            <button class="button-secondary" (click)="onResetToDefaultClick()" [disabled]="!form.dirty">Reset changes</button>
+            <button class="button-secondary" (click)="onSaveChangesClick()" [disabled]="!form.valid || !form.dirty">Save changes</button>
+            <button class="button-secondary" (click)="confirmCharacterDeletionModalOpen = true">Delete</button>
+        </div>
+
+        
     </div>
 
-    <form class="col gap-18">
+    <form class="col gap-18" [formGroup]="form">
         <div class="col gap-6">
             <label for="name">Name</label>
-            <input type="text" id="name" readonly value="{{character.name}}">
+            <input type="text" id="name" formControlName="name" required>
         </div>
 
         <div class="row gap-18">
             <div class="col gap-6">
                 <label for="race">Race</label>
-                <input type="text" id="race" readonly value="{{character.race}}">
+                <input type="text" id="race" formControlName="race">
             </div>
 
             <div class="col gap-6">
                 <label for="sex">Sex</label>
-                <input type="text" id="sex" readonly value="{{character.sex}}">
+                <input type="text" id="sex" formControlName="sex">
             </div>
 
             <div class="col gap-6">
                 <label for="age">Age</label>
-                <input type="text" id="age" readonly value="{{character.age}}">
+                <input type="text" id="age" formControlName="age">
             </div>
 
             <div class="col gap-6">
                 <label for="size">Size</label>
-                <input type="text" id="size" readonly value="{{character.size}}">
+                <input type="text" id="size" formControlName="size">
             </div>
 
             <div class="col gap-6">
                 <label for="alignment">Alignment</label>
-                <input type="text" id="alignment" readonly value="{{character.alignment}}">
+                <input type="text" id="alignment" formControlName="alignment">
             </div>
         </div>
 
         <div class="col gap-6">
             <label for="notes">Notes</label>
-            <textarea id="notes" rows="6" value="{{character.notes}}" readonly></textarea>
+            <textarea id="notes" rows="6" formControlName="notes"></textarea>
         </div>
     </form>
 </div>

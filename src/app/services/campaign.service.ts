@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Campaign } from '../models/campaign';
-import { CAMPAIGNS } from '../models/mock/mockCampaigns';
 
 @Injectable({
   providedIn: 'root'
