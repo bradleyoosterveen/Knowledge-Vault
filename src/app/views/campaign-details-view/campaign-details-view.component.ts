@@ -67,6 +67,9 @@ export class CampaignDetailsViewComponent {
       notes: this.form.get('notes')?.value || ''
     }
 
-    this.campaignService.updateCampaign(campaign)
+    this.campaignService.updateCampaign(campaign);
+
+    this.form.markAsPristine();
+    this.initialFormValues = this.form.value;
   }
 }
