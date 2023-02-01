@@ -37,6 +37,7 @@ export class CharacterViewComponent {
       age: new FormControl(this.character.age),
       size: new FormControl(this.character.size),
       alignment: new FormControl(this.character.alignment),
+      description: new FormControl(this.character.description),
       notes: new FormControl(this.character.notes),
     });
 
@@ -70,6 +71,8 @@ export class CharacterViewComponent {
       age: this.form.get('age')?.value || '',
       size: this.form.get('size')?.value || '',
       alignment: this.form.get('alignment')?.value || '',
+      description: this.form.get('description')?.value || '',
+      notes: this.form.get('notes')?.value || ''
     }
 
     this.characterService.updateCharacter(charachter);
