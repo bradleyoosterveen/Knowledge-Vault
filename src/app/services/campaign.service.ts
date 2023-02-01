@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Campaign } from '../models/campaign';
-import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +12,7 @@ export class CampaignService {
 
   updated = new Subject<Campaign>();
 
-  constructor(
-    private _alertService: AlertService
-  ) {}
+  constructor() {}
 
   getCampaigns(): Campaign[] {
     let data = JSON.parse(localStorage.getItem(this._key) || "{}");
@@ -41,8 +38,6 @@ export class CampaignService {
 
     this._updateStorage();
 
-    this._alertService.success("Campaign created.");
-
     return campaign;
   }
 
@@ -53,8 +48,6 @@ export class CampaignService {
 
     this._updateStorage();
 
-    this._alertService.success("Campaign deleted.");
-
     return campaign;
   }
 
@@ -63,8 +56,6 @@ export class CampaignService {
     this.addCampaign(campaign);
 
     this.updated.next(campaign);
-
-    this._alertService.success("Campaign updated.");
 
     return campaign;
   }
