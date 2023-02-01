@@ -3,8 +3,8 @@ export class Alert {
         public id: number,
         public type: AlertType,
         public title: string,
-        public message: string,
-        public timeout: number
+        public timeout: number,
+        public message?: string
     ) {}
 }
 

@@ -15,19 +15,19 @@ export class AlertService {
     return this._subject.asObservable();
   }
 
-  info(title: string, message: string, timeout = 3000) {
-    this._subject.next(new Alert(this._id++, AlertType.info, title, message, timeout));
+  info(title: string, message?: string, timeout = 3000) {
+    this._subject.next(new Alert(this._id++, AlertType.info, title, timeout, message));
   }
 
-  success(title: string, message: string, timeout = 3000) {
-    this._subject.next(new Alert(this._id++, AlertType.success, title, message, timeout));
+  success(title: string, message?: string, timeout = 3000) {
+    this._subject.next(new Alert(this._id++, AlertType.success, title, timeout, message));
   }
 
-  warning(title: string, message: string, timeout = 3000) {
-    this._subject.next(new Alert(this._id++, AlertType.warning, title, message, timeout));
+  warning(title: string, message?: string, timeout = 3000) {
+    this._subject.next(new Alert(this._id++, AlertType.warning, title, timeout, message));
   }
 
-  error(title: string, message: string, timeout = 0) {
-    this._subject.next(new Alert(this._id++, AlertType.error, title, message, timeout));
+  error(title: string, message?: string, timeout = 0) {
+    this._subject.next(new Alert(this._id++, AlertType.error, title, timeout, message));
   }
 }
