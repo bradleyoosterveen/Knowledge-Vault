@@ -18,10 +18,11 @@
         <a [routerLink]="[character.id]" *ngFor="let character of characters" class="col gap-6 bg-veryDarkGrey py-12 px-24 border-smooth shadow-light">
             <div class="row align-items-center gap-12">
                 <h3 style="flex: 1">{{character.name}}</h3>
-                <p>{{character.race}}</p>
+                <p *ngIf="character.race">{{character.race}}</p>
+                <p *ngIf="!character.race" class="subtle">No race available</p>
             </div>
             <p *ngIf="character.description" class="text-overflow-ellipsis">{{character.description}}</p>
-            <p class="subtle" *ngIf="!character.description">No description available</p>
+            <p *ngIf="!character.description" class="subtle">No description available</p>
         </a>
 
         <ng-container *ngIf="characters.length === 0">
