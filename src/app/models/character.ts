@@ -7,9 +7,9 @@ export interface Character {
     name: string;
     campaignId: number;
     race?: string;
-    sex?: Sex;
+    sex?: string;
     age?: number;
-    size?: Size;
-    alignment?: Alignment;
+    size?: string;
+    alignment?: string;
     notes?: string;
 }
