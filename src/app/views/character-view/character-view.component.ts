@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Character } from 'src/app/models/character';
+import { AlertService } from 'src/app/services/alert.service';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class CharacterViewComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private _alertService: AlertService
   ) {
     let id: number = Number(this.route.snapshot.paramMap.get('characterid'));
 
@@ -52,6 +54,8 @@ export class CharacterViewComponent {
     this.characterService.deleteCharacter(this.character);
 
     this.router.navigate(['campaign', Number(this.route.parent?.snapshot.paramMap.get('id')), 'characters']);
+
+    this._alertService.success('Character deleted');
   }
 
   onResetToDefaultClick(): void {
@@ -79,6 +83,8 @@ export class CharacterViewComponent {
 
     this.form.markAsPristine();
     this.initialFormValues = this.form.value;
+
+    this._alertService.success('Character updated');
   }
 
   ngOnDestroy(): void {

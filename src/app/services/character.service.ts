@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Character } from '../models/character';
-import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +12,7 @@ export class CharacterService {
 
   updated = new Subject<Character>();
 
-  constructor(
-    private _alertService: AlertService
-  ) { }
+  constructor() { }
 
   private all(): Character[] {
     let data = JSON.parse(localStorage.getItem(this._key) || "{}");
@@ -43,8 +40,6 @@ export class CharacterService {
 
     this._updateStorage();
 
-    this._alertService.success("Character created.");
-
     return charachter;
   }
 
@@ -55,8 +50,6 @@ export class CharacterService {
 
     this._updateStorage();
 
-    this._alertService.success("Character deleted.");
-
     return charachter;
   }
 
@@ -65,8 +58,6 @@ export class CharacterService {
     this.addCharacter(charachter);
 
     this.updated.next(charachter);
-
-    this._alertService.success("Character updated.");
 
     return charachter;
   }

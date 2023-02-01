@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Character } from 'src/app/models/character';
 import { CHARACTERS } from 'src/app/models/mock/mockCharacters';
+import { AlertService } from 'src/app/services/alert.service';
 import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class CharactersViewComponent {
 
   constructor(
     private characterService: CharacterService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _alertService: AlertService
   ) {
     if (this.route.parent === null) {
       this.campaignId = Number(this.route.snapshot.paramMap.get('id'));
@@ -31,5 +33,7 @@ export class CharactersViewComponent {
     this.createCharacterModalOpen = false;
 
     this.characters = this.characterService.getCampaignCharacters(this.campaignId);
+
+    this._alertService.success('Character created');
   }
 }

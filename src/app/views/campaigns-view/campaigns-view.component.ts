@@ -16,13 +16,15 @@ export class CampaignsViewComponent {
 
   constructor(
     private campaignService: CampaignService,
-    private alertService: AlertService
+    private _alertService: AlertService
   ) {
     this.campaigns = this.campaignService.getCampaigns();
   }
 
   onSubmitEvent(campaign: Campaign): void {
     this.createCampaignModalOpen = false;
+
+    this._alertService.success('Campaign created')
   }
 
   onClearAllDataClick(): void {
