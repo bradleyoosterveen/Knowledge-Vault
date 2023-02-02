@@ -1,14 +1,8 @@
-<app-modal [(open)]="createCharacterModalOpen">
-    <div title>Create new character</div>
-
-    <app-create-character-form body (submitEvent)="onSubmitEvent($event)"></app-create-character-form>
-</app-modal>
-
 <div class="col gap-24">
     <div class="row justify-content-space-between align-items-center">
         <h1>Characters</h1>
 
-        <button (click)="createCharacterModalOpen = true">
+        <button (click)="onCreateCharacterClick()">
             Create a new character
             <i class="fa-solid fa-plus"></i>
         </button>

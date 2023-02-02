@@ -16,7 +16,6 @@ import { SpellsViewComponent } from './views/spells-view/spells-view.component';
 import { ModalComponent } from './components/modals/modal/modal.component';
 import { CreateCampaignFormComponent } from './components/forms/create-campaign-form/create-campaign-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CreateCharacterFormComponent } from './components/forms/create-character-form/create-character-form.component';
 import { WorkInProgressComponent } from './components/work-in-progress/work-in-progress.component';
 import { CharacterViewComponent } from './views/character-view/character-view.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
@@ -36,7 +35,6 @@ import { AlertsComponent } from './components/alerts/alerts.component';
     SpellsViewComponent,
     ModalComponent,
     CreateCampaignFormComponent,
-    CreateCharacterFormComponent,
     WorkInProgressComponent,
     CharacterViewComponent,
     AlertsComponent
