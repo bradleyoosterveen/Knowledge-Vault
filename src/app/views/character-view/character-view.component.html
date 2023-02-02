@@ -12,15 +12,18 @@
 </app-modal>
 
 <div class="col gap-24">
-    <div class="row justify-content-space-between align-items-center">
-        <h1>{{character.name}}</h1>
-        <div class="row gap-12">
-            <button class="button-secondary" (click)="onResetToDefaultClick()" [disabled]="!form.dirty">Reset changes</button>
-            <button class="button-secondary" (click)="onSaveChangesClick()" [disabled]="!form.valid || !form.dirty">Save changes</button>
-            <button class="button-secondary" (click)="confirmCharacterDeletionModalOpen = true">Delete</button>
+    <div class="col gap-12">
+        <a [routerLink]="['/campaign', character.campaignId, 'characters']" class="row align-items-center gap-6">
+            <p><small><i class="fa-solid fa-chevron-left"></i></small> View all characters</p>
+        </a>
+        <div class="row justify-content-space-between align-items-center">
+            <h1>{{character.name}}</h1>
+            <div class="row gap-12">
+                <button class="button-secondary" (click)="onResetToDefaultClick()" [disabled]="!form.dirty">Reset changes</button>
+                <button class="button-secondary" (click)="onSaveChangesClick()" [disabled]="!form.valid || !form.dirty">Save changes</button>
+                <button class="button-secondary" (click)="confirmCharacterDeletionModalOpen = true">Delete</button>
+            </div>
         </div>
-
-        
     </div>
 
     <form class="col gap-18" [formGroup]="form">
