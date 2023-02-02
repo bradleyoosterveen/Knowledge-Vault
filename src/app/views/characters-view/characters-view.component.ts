@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from 'src/app/models/character';
-import { CHARACTERS } from 'src/app/models/mock/mockCharacters';
 import { AlertService } from 'src/app/services/alert.service';
 import { CharacterService } from 'src/app/services/character.service';
 
@@ -13,11 +12,11 @@ import { CharacterService } from 'src/app/services/character.service';
 export class CharactersViewComponent {
   campaignId: number;
   characters: Character[] = [];
-  createCharacterModalOpen: boolean = false;
 
   constructor(
     private characterService: CharacterService,
     private route: ActivatedRoute,
+    private router: Router,
     private _alertService: AlertService
   ) {
     if (this.route.parent === null) {
@@ -29,11 +28,17 @@ export class CharactersViewComponent {
     this.characters = this.characterService.getCampaignCharacters(this.campaignId);
   }
 
-  onSubmitEvent(character: Character): void {
-    this.createCharacterModalOpen = false;
+  onCreateCharacterClick(): void {
+    let id = this.characterService.getNextID();
 
-    this.characters = this.characterService.getCampaignCharacters(this.campaignId);
+    this.characterService.addCharacter({
+      id: id,
+      campaignId: this.campaignId,
+      name: `Character ${id}`,
+    });
 
     this._alertService.success('Character created');
+
+    this.router.navigate([id], {relativeTo: this.route});
   }
 }
