@@ -4,19 +4,15 @@ label {
 }
 
 input, textarea, select {
-    border: none;
+    border: 1px solid transparent;
     background: var(--color-veryDarkGrey);
     padding: 12px 24px;
     border-radius: 4px;
     box-shadow: var(--shadow-light);
 
-    &:active:not(select) {
-        border: none;
+    &:hover, &:focus {
+        border: 1px solid var(--color-grey);
     }
 
     resize: none;
-}
-
-select {
-    border-right: 16px solid transparent;
 }
